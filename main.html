@@ -10,21 +10,27 @@
          * Finds the second highest number in an array.
          * Handles duplicates and negative numbers.
          */
-        function secondHighest(arr) let highest = -Infinity;
+        function secondHighest(arr) {
+    if (arr.length <= 1) {
+        return -Infinity;
+    }
+
+    let highest = -Infinity;
     let secondHighestValue = -Infinity;
 
     for (let i = 0; i < arr.length; i++) {
-        let current = Number(arr[i]);
 
-        if (current > highest) {
+        if (arr[i] > highest) {
             secondHighestValue = highest;
-            highest = current;
-        } else if (current < highest && current > secondHighestValue) {
-            secondHighestValue = current;
+            highest = arr[i];
+        }
+        else if (arr[i] < highest && arr[i] > secondHighestValue) {
+            secondHighestValue = arr[i];
         }
     }
 
-    return secondHighestValue;}
+    return secondHighestValue;
+;}
 
         function Main() {
             let n = parseInt(prompt("Enter the number of elements"), 10);
